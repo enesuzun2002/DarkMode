@@ -1,4 +1,4 @@
-package com.example.dark_mode
+package com.enesmuratuzun.dark_mode
 
 import android.app.UiModeManager
 import android.content.res.Configuration

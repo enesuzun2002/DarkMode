@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.dark_mode">
+    package="com.enesmuratuzun.dark_mode">
    <application
-        android:label="dark_mode"
+        android:label="DarkMode"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
