@@ -38,6 +38,9 @@ class _MainScreenState extends State<MainScreen> {
     late int darkMode;
     return Scaffold(
       body: InkWell(
+        // To disable ripple effect
+        splashColor: Theme.of(context).colorScheme.background,
+        highlightColor: Theme.of(context).colorScheme.background,
         onTap: () async {
           darkMode = await darkModeChannel.invokeMethod('getDarkMode');
           if (darkMode == 1) {

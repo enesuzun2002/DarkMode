@@ -1,7 +1,6 @@
 package com.enesmuratuzun.dark_mode
 
 import android.app.UiModeManager
-import android.content.res.Configuration
 import androidx.annotation.NonNull
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
@@ -21,8 +20,7 @@ class MainActivity : FlutterActivity() {
 
         channel.setMethodCallHandler { call, result ->
             if (call.method == "getDarkMode") {
-                val darkMode = getDarkMode()
-                result.success(darkMode)
+                result.success(uiModeManager?.nightMode)
             }
             if (call.method == "setDarkMode") {
                 val arguments = call.arguments() as Map<String, Int>?
@@ -34,12 +32,6 @@ class MainActivity : FlutterActivity() {
                     result.success("Success")
                 }
             }
-        }
-    }
-    private fun getDarkMode(): Int {
-        return when (context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
-            Configuration.UI_MODE_NIGHT_YES -> 2
-            else -> 1
         }
     }
     private fun setDarkMode(value: Int) {
