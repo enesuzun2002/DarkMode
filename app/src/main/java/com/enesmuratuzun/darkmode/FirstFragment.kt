@@ -33,6 +33,19 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
+
+        when(uiModeManager?.nightMode){
+            UiModeManager.MODE_NIGHT_NO -> {
+                binding.toggleButton.check(binding.button3.id)
+            }
+            UiModeManager.MODE_NIGHT_YES -> {
+                binding.toggleButton.check(binding.button1.id)
+            }
+            UiModeManager.MODE_NIGHT_AUTO -> {
+                binding.toggleButton.check(binding.button2.id)
+            }
+        }
+
         binding.toggleButton.addOnButtonCheckedListener { _, checkedId, _ ->
             when (checkedId) {
                 binding.button1.id -> {
