@@ -1,12 +1,15 @@
 package com.enesmuratuzun.darkmode
 
 import android.app.UiModeManager
+import android.content.Context
+import android.graphics.drawable.Drawable
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.enesmuratuzun.darkmode.databinding.FragmentFirstBinding
 
 /**
@@ -33,41 +36,35 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
+        var darkMode = activity?.getDrawable(R.drawable.ic_dark_mode)
+        var lightMode = activity?.getDrawable(R.drawable.ic_light_mode)
 
         when(uiModeManager?.nightMode){
             UiModeManager.MODE_NIGHT_NO -> {
-                binding.toggleButton.check(binding.button3.id)
+                binding.imageView.setImageDrawable(lightMode)
+                binding.toggleButton.check(binding.button2.id)
             }
             UiModeManager.MODE_NIGHT_YES -> {
+                binding.imageView.setImageDrawable(darkMode)
                 binding.toggleButton.check(binding.button1.id)
-            }
-            UiModeManager.MODE_NIGHT_AUTO -> {
-                binding.toggleButton.check(binding.button2.id)
             }
         }
 
         binding.toggleButton.addOnButtonCheckedListener { _, checkedId, _ ->
             when (checkedId) {
                 binding.button1.id -> {
-                    setDarkMode(0)
-                }
-                binding.button2.id -> {
                     setDarkMode(1)
                 }
                 else -> {
-                    setDarkMode(2)
+                    setDarkMode(0)
                 }
             }
         }
     }
-
     private fun setDarkMode(value: Int) {
         when (value){
-            2 -> {
+            0 -> {
                 uiModeManager?.nightMode = UiModeManager.MODE_NIGHT_NO
-            }
-            1 -> {
-                uiModeManager?.nightMode = UiModeManager.MODE_NIGHT_AUTO
             }
             else -> {
                 uiModeManager?.nightMode = UiModeManager.MODE_NIGHT_YES

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">DarkMode</string>
     <string name="dark_mode_button">Dark Mode</string>
-    <string name="automatic_mode_button">Auto</string>
     <string name="light_mode_button">Light Mode</string>
     <string name="first_fragment_label">DarkMode</string>
+    <string name="mode_icon">Theme Mode Icon</string>
 </resources>
