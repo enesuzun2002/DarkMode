@@ -2,6 +2,7 @@ package com.enesmuratuzun.darkmode
 
 import android.app.UiModeManager
 import android.content.Context
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
