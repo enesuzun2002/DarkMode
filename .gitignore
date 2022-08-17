@@ -16,4 +16,4 @@ local.properties
 .idea/*
 app/release
 
-
+app/src/main/java/com/enesmuratuzun/darkmode/Constants.kt

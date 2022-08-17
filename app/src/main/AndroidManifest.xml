@@ -3,6 +3,8 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.enesmuratuzun.darkmode">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
             android:allowBackup="true"
             android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +14,10 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.DarkMode"
             tools:targetApi="32">
+        <meta-data
+                android:name="com.google.android.gms.ads.APPLICATION_ID"
+                android:value="ca-app-pub-2910768908749150~1837444557"/>
+
         <activity
                 android:name=".MainActivity"
                 android:exported="true"
